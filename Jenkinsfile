@@ -23,7 +23,7 @@ pipeline {
                     // trim removes leading and trailing whitespace from the string
                     short_hash = readFile('/tmp/short_hash').trim()
                 }
-                sh "docker build -t docker.majustfortesting.com/exercises/guestbook:${short_hash} ."
+                sh "docker build -t docker.majustfortesting.com/exercises/guestbook-gary:${short_hash} ."
             }
         }
         stage('Push image') {
@@ -32,7 +32,7 @@ pipeline {
             }
             steps {
                 echo "Pushing image..."
-                sh "docker push docker.majustfortesting.com/exercises/guestbook:${short_hash}"
+                sh "docker push docker.majustfortesting.com/exercises/guestbook-gary:${short_hash}"
             }
         }
     }
