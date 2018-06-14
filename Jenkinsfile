@@ -18,7 +18,7 @@ pipeline {
                 label "dockerbuild"
             }
             steps {
-                sh "git ls-remote | git rev-parse --short master > /tmp/short_hash"
+                sh "git rev-parse --short master > /tmp/short_hash"
                 script {
                     // trim removes leading and trailing whitespace from the string
                     short_hash = readFile('/tmp/short_hash').trim()
